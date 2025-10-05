@@ -1,0 +1,1033 @@
+:root {
+    --primary: #2070c4; /* 更新为新的蓝色 */
+    --accent: #31da4b;
+    --border: #eee;
+}
+*{box-sizing:border-box}html,body{margin:0;padding:0}body{font-family:Arial,Helvetica,sans-serif;color:var(--text);background:var(--bg)}
+.container{max-width:1180px;margin:0 auto;padding:0 20px}
+
+/* Loader */
+.loader{
+    position:fixed;
+    inset:0;
+    background:white; /* 白色遮罩，完全不透明 */
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    z-index:1000;
+    transition:opacity .3s ease;
+}
+.loader.hidden{
+    opacity:0;
+    pointer-events:none;
+}
+.loader-content{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:14px;
+}
+.loader-logo{
+    width:300px; /* Logo放大 */
+    height:auto;
+}
+.loader-progress-bar{
+    width:200px;
+    height:6px;
+    background:#eee;
+    border-radius:999px;
+    overflow:hidden;
+    margin-top:20px;
+}
+.loader-fill{
+    width:0;
+    height:100%;
+    background:#31da4b; /* 进度条绿色 */
+    transition:width .2s linear;
+}
+.loader-close,.loader-skip{background:none;border:none;color:var(--primary);cursor:pointer}
+.loader-skip{text-decoration:none}
+
+/* Topbar */
+.topbar {
+    background: var(--primary); /* 顶部栏蓝色背景 */
+    border-bottom: 1px solid var(--border);
+    min-height: 50px; /* 增加高度 */
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    padding: 0 20px; /* 添加左右内边距 */
+}
+.topbar-inner{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    width: 100%; /* 占据父元素全部宽度 */
+}
+.topbar-left a{
+    color:white; /* 联系邮箱白色文字 */
+    text-decoration:none;
+}
+.topbar-right a{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center; /* 居中SVG图标 */
+    width:30px; /* 白色正方形背景宽度 */
+    height:30px; /* 白色正方形背景高度 */
+    background-color:white; /* 白色正方形背景 */
+    border-radius:4px; /* 轻微圆角，可选 */
+    margin-left:10px;
+}
+.topbar-right svg, .topbar-right img {
+    width:18px;
+    height:18px;
+    /* fill:black; SVG图标颜色由SVG文件本身或fill属性控制 */
+}
+
+/* Header */
+.site-header{position:sticky;top:0;z-index:900;background:#fff;border-bottom:1px solid var(--border)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;height:80px}
+.brand img{height:80px}
+.nav-toggle{display:none;background:none;border:none;width:36px;height:36px;position:relative}
+.nav-toggle span{position:absolute;left:6px;right:6px;height:2px;background:#333;transition:transform .2s}
+.nav-toggle span:nth-child(1){top:10px}.nav-toggle span:nth-child(2){top:17px}.nav-toggle span:nth-child(3){top:24px}
+
+.main-nav{flex:1;display:flex;justify-content:center}
+.main-nav ul{display:flex;align-items:center;justify-content:center;gap:30px;list-style:none;margin:0;padding:0}
+.main-nav a{color:#333;text-decoration:none}
+.main-nav a.active,.main-nav a:hover{color:var(--primary)}
+.main-nav .btn{padding:10px 16px;border-radius:6px;font-weight:600}
+.cta{margin-left:auto}
+.cta .btn:not(.btn-text){padding:10px 0;font-weight:600}
+.btn{display:inline-block;text-decoration:none}
+.btn-primary{background:transparent;color:#2070c4;border:none;font-weight:600;}
+.btn-secondary{border:2px solid var(--primary);color:var(--primary);background:transparent}
+.btn-text{background:none;color:#2070c4;border:none;font-weight:600;padding:0;}
+
+.lang{position:relative}
+.lang-current{background:#fff;border:1px solid var(--border);border-radius:6px;padding:6px 10px;cursor:pointer}
+.lang-menu{position:absolute;top:110%;right:0;background:#fff;border:1px solid var(--border);border-radius:8px;box-shadow:0 8px 24px rgba(0,0,0,.08);padding:6px;display:none}
+.lang-menu button{background:none;border:none;padding:8px 12px;width:100%;text-align:left;cursor:pointer}
+.lang.open .lang-menu{display:block}
+
+/* Sections */
+.section{padding:50px 0}
+/* 保留这个样式用于其他 .section.alt 元素 */
+.section.alt{
+    background:#fd5353;
+    padding: 80px 0;
+    color: white;
+}
+
+/* Network Benefit Section */
+.network-benefit-section {
+    background: #31da4b; /* 绿色背景 */
+    color: white;
+    padding: 50px 0; /* 添加上下留白 */
+    position: relative;
+}
+
+.benefit-container {
+    display: flex;
+    width: 90%;
+    max-width: 1300px;
+    margin: 0 auto;
+    height: 500px; /* 固定高度，与上一部分一致 */
+}
+
+.benefit-content {
+    width: 50%;
+    padding: 100px 120px; /* 与上一部分一致 */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: white; /* 白色背景 */
+}
+
+.benefit-image {
+    width: 50%;
+    background: url('../images/backgrounds/1968-scaled.jpg') no-repeat center center;
+    background-size: cover;
+}
+
+.benefit-title-primary {
+    color: #31da4b; /* 绿色 */
+    font-size: 54px;
+    font-weight: bold;
+    margin-bottom: 0;
+    text-transform: uppercase;
+    line-height: 1.1;
+}
+
+.benefit-title-secondary {
+    color: #2070c4; /* 蓝色，与第二部分一致 */
+    font-size: 54px;
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    line-height: 1.1;
+}
+
+.benefit-text {
+    color: #444;
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 10px; /* 减少底部边距 */
+    max-width: 600px;
+}
+
+.benefit-actions {
+    margin-top: 30px;
+    text-align: left; /* 确保文字左对齐 */
+}
+
+.market-actions {
+    margin-top: 30px;
+    text-align: left; /* 确保文字左对齐 */
+}
+
+.benefit-btn {
+    background: transparent; /* 透明背景 */
+    color: #31da4b; /* 绿色文字 */
+    border: none; /* 无边框 */
+    padding: 12px 0; /* 去掉左右内边距 */
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.benefit-btn:hover {
+    color: #28b53f; /* 深绿色 */
+}
+.center{text-align:center}
+.eyebrow{letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:0 0 8px}
+.lead{color:#444;max-width:920px}
+.actions{margin-top:18px}
+
+/* Hero */
+.hero {
+    background: url('../wp-content/uploads/OHN-Startseite.png') no-repeat center center;
+    background-size: cover;
+    min-height: 80vh; /* 恢复原有高度 */
+    display: flex;
+    align-items: center;
+    color: white;
+    text-align: center;
+}
+.hero h1{font-size:44px;margin:8px 0 14px}
+.hero .lead{font-size:18px}
+
+/* 红色填充区域 */
+.red-spacer {
+    background: #fd5353;
+    height: 50px; /* 调整高度以控制下移距离 */
+    width: 100%;
+}
+
+/* Market Entry Section */
+.market-entry-section {
+    background: #fd5353;
+    position: relative;
+    color: white;
+    padding: 0;
+    min-height: 60vh;
+    width: 100%;
+}
+.market-container {
+    display: flex;
+    width: 90%; /* 减小宽度，增加两侧留白 */
+    max-width: 1300px;
+    margin: 0 auto;
+    background: #fd5353;
+    height: 500px; /* 固定高度 */
+}
+
+.market-content {
+    width: 50%; /* 固定宽度为50% */
+    padding: 100px 120px; /* 增加左右内边距 */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: white;
+    margin-top: 0px; /* 添加顶部外边距 */
+}
+
+.market-image {
+    width: 50%; /* 固定宽度为50% */
+    background: url('../images/backgrounds/1968-scaled.jpg') no-repeat center center;
+    background-size: cover;
+    height: 100%;
+}
+.market-title-red {
+    color: #fd5353;
+    margin-bottom: 0;
+    font-size: 54px;
+    font-weight: bold;
+    text-transform: uppercase;
+    line-height: 1.1;
+}
+
+.market-title-green {
+    color: #31da4b;
+    margin-top: 0;
+    margin-bottom: 30px;
+    font-size: 54px;
+    font-weight: bold;
+    text-transform: uppercase;
+    line-height: 1.1;
+}
+.market-text {
+    color: #333;
+    margin-bottom: 40px;
+    font-size: 18px;
+    line-height: 1.6;
+    max-width: 600px;
+}
+.market-btn {
+    background: transparent;
+    color: #2070c4; /* 蓝色文字 */
+    border: none;
+    padding: 12px 0; /* 去掉左右内边距 */
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.market-btn:hover {
+    color: #1a5ea0; /* 深蓝色悬停效果 */
+}
+
+/* Cards */
+.grid{display:grid;gap:30px}
+.cards-3{grid-template-columns:repeat(3,minmax(0,1fr));margin-top:40px}
+.card{
+    background:#fff;
+    border-radius:12px;
+    padding:25px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* Benefits Icons Section */
+.benefits-icons-section {
+    background-color: #31da4b; /* 绿色背景 */
+    padding: 0; /* 完全移除上下内边距 */
+    position: relative;
+    z-index: 1;
+}
+
+.benefits-icons-container {
+    width: 90%; /* 与market-container一致 */
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.benefits-icons-actions {
+    text-align: center;
+    margin-top: 20px; /* 减小按钮上方的间距 */
+}
+
+.benefits-icons-btn {
+    display: inline-block;
+    background-color: transparent;
+    color: #fff;
+    border: none; /* 移除边框 */
+    padding: 12px 30px;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.benefits-icons-btn:hover {
+    text-decoration: underline;
+}
+
+
+.benefits-icons-row {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin: 0 auto;
+    justify-content: space-between;
+    padding: 10px 0; /* 进一步减小上下内边距 */
+}
+
+.benefits-icon-column {
+    flex: 0 0 32%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+.benefits-icon-spacer {
+    flex-grow: 1;
+    min-height: 20px;
+}
+
+.benefits-icon-box {
+    background-color: #31da4b; /* 绿色背景 */
+    padding: 20px 20px; /* 减小上下内边距 */
+    border: 4px solid #fff; /* 加粗的白色边框 */
+    border-radius: 0; /* 移除圆角 */
+    text-align: center;
+    transition: all 0.3s ease;
+    height: 100%;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15); /* 添加阴影 */
+}
+
+.benefits-icon-box:hover {
+    transform: translateY(-5px);
+}
+
+.benefits-icon {
+    margin-bottom: 15px; /* 减小图标与文字之间的间距 */
+}
+
+.benefits-icon .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    transition: all 0.3s ease;
+}
+
+.custom-icon {
+    width: 60px;
+    height: 60px;
+    color: #fff;
+    fill: #fff;
+}
+
+.benefits-icon-box:hover .benefits-icon .icon {
+    transform: scale(1.1);
+}
+
+.benefits-icon-content {
+    margin-top: 15px;
+}
+
+.benefits-icon-title {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #fff; /* 白色标题 */
+    text-transform: uppercase;
+}
+
+.benefits-icon-description {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #fff; /* 白色描述文字 */
+    margin: 0;
+    padding: 0 10px;
+    opacity: 0.9; /* 轻微透明度 */
+}
+
+/* Green Section */
+.green-section {
+    background: #31da4b; /* 绿色背景 */
+    color: white;
+    padding: 0;
+    position: relative;
+}
+
+.green-container {
+    display: flex;
+    width: 90%;
+    max-width: 1300px;
+    margin: 0 auto;
+    min-height: 500px;
+}
+
+.green-content {
+    width: 50%;
+    padding: 100px 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: #31da4b;
+}
+
+.green-title {
+    font-size: 42px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: white;
+    text-transform: uppercase;
+}
+
+.green-text {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    max-width: 600px;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.green-actions {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.green-btn {
+    background: white;
+    color: #31da4b;
+    padding: 12px 24px;
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-block;
+    transition: all 0.3s ease;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.green-btn:hover {
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.green-btn-outline {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+    padding: 12px 24px;
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-block;
+    transition: all 0.3s ease;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.green-btn-outline:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.green-features {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    position: relative;
+    padding: 40px;
+    background: url('../images/backgrounds/1968-scaled.jpg') no-repeat center center;
+    background-size: cover;
+    overflow: hidden;
+    height: 100%;
+}
+
+.green-features::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+}
+
+.feature {
+    position: relative;
+    z-index: 2;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 8px;
+    backdrop-filter: blur(5px);
+}
+
+.feature h3 {
+    color: white;
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.feature p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 16px;
+    line-height: 1.5;
+}
+.card h3{
+    margin:0 0 15px;
+    color: #333;
+    font-size: 20px;
+    font-weight: 600;
+}
+.section.alt h2 {
+    color: white;
+    font-size: 36px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+.section.alt p {
+    color: white;
+    margin-bottom: 40px;
+    font-size: 18px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.section.alt .btn-primary {
+    background: white;
+    color: #fd5353;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+.section.alt .btn-primary:hover {
+    background: rgba(255,255,255,0.9);
+}
+
+/* Contact */
+.contact-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.contact-title {
+    color: var(--primary);
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 40px;
+    text-align: left;
+}
+
+.contact-form {
+    width: 100%;
+}
+
+.form-message {
+    padding: 10px 15px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    display: none;
+}
+
+.form-message.success {
+    display: block;
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.form-message.error {
+    display: block;
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+/* 弹窗样式 */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal.show {
+    display: flex;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 5px;
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.modal-icon {
+    width: 60px;
+    height: 60px;
+    background-color: #31da4b;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+}
+
+.modal-icon svg {
+    width: 30px;
+    height: 30px;
+    fill: white;
+}
+
+.modal-title {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.modal-text {
+    color: #666;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.modal-btn {
+    background-color: #2070c4;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.modal-btn:hover {
+    background-color: #1a5ea0;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    color: var(--primary);
+    font-size: 16px;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.required {
+    color: red;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 0;
+    font-size: 16px;
+    color: #333;
+}
+
+.contact-form textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: flex-start;
+    position: relative;
+    padding-left: 35px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #555;
+}
+
+.checkbox-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkbox-container .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    border: 1px solid #ddd;
+}
+
+.checkbox-container:hover input ~ .checkmark {
+    background-color: #f9f9f9;
+}
+
+.checkbox-container input:checked ~ .checkmark {
+    background-color: var(--primary);
+    border-color: var(--primary);
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.checkbox-container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.checkbox-container .checkmark:after {
+    left: 7px;
+    top: 3px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.policy-text {
+    line-height: 1.4;
+    padding-top: 2px;
+}
+
+.form-actions {
+    margin-top: 30px;
+    text-align: left;
+}
+
+.send-request-btn {
+    background-color: white !important;
+    color: var(--primary) !important;
+    border: 2px solid var(--primary) !important;
+    padding: 12px 30px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 4px;
+}
+
+.send-request-btn:hover {
+    background-color: rgba(32, 112, 196, 0.05);
+}
+
+/* AI Notice */
+/* 生产部分样式 */
+#manufacture {
+    padding: 0;
+    background-color: #2070c4;
+    position: relative;
+}
+
+.manufacture-container {
+    display: flex;
+    width: 90%;
+    max-width: 1300px;
+    margin: 0 auto;
+    height: 500px;
+}
+
+.manufacture-content {
+    width: 50%;
+    padding: 100px 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: #2070c4;
+    color: white;
+}
+
+.manufacture-image {
+    width: 50%;
+    background: url('../wp-content/uploads/2025/02/HafenOHN-1024x477.webp') no-repeat center center;
+    background-size: cover;
+    height: 100%;
+}
+
+.manufacture-title-primary {
+    color: white;
+    font-size: 54px;
+    font-weight: bold;
+    margin-bottom: 0;
+    text-transform: uppercase;
+    line-height: 1.1;
+}
+
+.manufacture-title-secondary {
+    color: white;
+    font-size: 42px;
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    line-height: 1.1;
+}
+
+.manufacture-text {
+    color: white;
+    font-size: 24px;
+    line-height: 1.6;
+    margin-bottom: 40px;
+    max-width: 600px;
+}
+
+.manufacture-actions {
+    margin-top: 30px;
+    text-align: left;
+}
+
+.manufacture-btn {
+    background: white;
+    color: #2070c4;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s ease;
+    border-radius: 4px;
+}
+
+.manufacture-btn:hover {
+    background: rgba(255, 255, 255, 0.9);
+}
+
+@media (max-width: 980px) {
+    .manufacture-container {
+        flex-direction: column;
+        height: auto;
+    }
+    
+    .manufacture-content {
+        width: 100%;
+        padding: 60px 50px;
+    }
+    
+    .manufacture-image {
+        width: 100%;
+        min-height: 300px;
+    }
+    
+    .manufacture-title-primary, .manufacture-title-secondary {
+        font-size: 36px;
+    }
+}
+
+.ai-notice {
+    background-color: #fff;
+    padding: 10px 0 20px;
+}
+
+.ai-notice p {
+    text-align: center;
+    color: #777;
+    font-size: 14px;
+    margin: 0;
+}
+
+/* Footer */
+.site-footer {
+    background: #fff;
+    color: #333;
+    padding: 30px 0;
+}
+
+.footer-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.footer-nav {
+    display: flex;
+    align-items: center;
+}
+
+.footer-nav a {
+    color: #333;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 0 12px;
+}
+
+.footer-nav a:hover {
+    color: var(--primary);
+}
+
+.footer-divider {
+    color: #ddd;
+    font-size: 14px;
+    margin: 0 2px;
+}
+
+.copyright {
+    color: #666;
+    font-size: 14px;
+}
+
+/* Responsive */
+@media (max-width: 980px){
+  .cards-3{grid-template-columns:1fr}
+  .contact{grid-template-columns:1fr}
+  
+  .footer-inner {
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+  }
+  
+  .footer-nav {
+    justify-content: center;
+  }
+  .form-grid{grid-template-columns:1fr}
+  .market-container {flex-direction: column; height: auto; width: 95%;}
+  .market-content {padding: 60px 50px; width: 100%;}
+  .market-image {min-height: 300px; width: 100%;}
+  .market-title-red, .market-title-green {font-size: 42px;}
+  .green-container {flex-direction: column; min-height: auto;}
+  .green-content {padding: 60px 50px; width: 100%;}
+  .green-features {margin-top: 0; width: 100%; min-height: 300px;}
+  .green-title {font-size: 36px;}
+  
+  /* Network Benefit Section 响应式 */
+  .benefit-container {flex-direction: column; height: auto;}
+  .benefit-content {width: 100%; padding: 60px 50px;}
+  .benefit-image {width: 100%; min-height: 300px;}
+  .benefit-title-primary, .benefit-title-secondary {font-size: 32px;}
+  
+  /* Benefits Icons Section 响应式 */
+  .benefits-icons-container {
+    width: 95%;
+  }
+  
+  .benefits-icons-row {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .benefits-icon-column {
+    flex: 0 0 100%;
+    max-width: 100%;
+    margin-bottom: 20px;
+    width: 100%;
+  }
+  
+  .benefits-icon-box {
+    margin-bottom: 20px;
+  }
+}
+@media (max-width: 860px){
+  .nav-toggle{display:block}
+  .main-nav{position:fixed;inset:72px 0 0 0;background:#fff;transform:translateY(-8px);opacity:0;pointer-events:none;transition:opacity .2s;flex:none}
+  .main-nav.open{opacity:1;pointer-events:auto}
+  .main-nav ul{flex-direction:column;padding:18px}
+  .cta{width:100%}
+}
