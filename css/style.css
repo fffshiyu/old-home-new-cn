@@ -209,7 +209,7 @@
 
 /* Hero */
 .hero {
-    background: url('../wp-content/uploads/OHN-Startseite.png') no-repeat center center;
+    background: url('../images/backgrounds/OHN-Startseite.png') no-repeat center center;
     background-size: cover;
     min-height: 80vh; /* 恢复原有高度 */
     display: flex;
@@ -844,7 +844,7 @@
 
 .manufacture-image {
     width: 50%;
-    background: url('../wp-content/uploads/2025/02/HafenOHN-1024x477.webp') no-repeat center center;
+    background: url('../images/backgrounds/HafenOHN.webp') no-repeat center center;
     background-size: cover;
     height: 100%;
 }
