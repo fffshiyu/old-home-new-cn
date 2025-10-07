@@ -1,26 +1,40 @@
 // 申请样品页面JavaScript
 
 document.addEventListener('DOMContentLoaded', function() {
-    // 表单提交处理
     const sampleRequestForm = document.getElementById('sampleRequestForm');
+    const successModal = document.getElementById('successModal');
+    const formTargetIframe = document.getElementById('form-target');
     
-    if (sampleRequestForm) {
-        // 表单提交前显示加载状态
-        sampleRequestForm.addEventListener('submit', function() {
+    // 关闭弹窗函数
+    window.closeModal = function() {
+        if (successModal) {
+            successModal.classList.remove('show');
+        }
+    };
+    
+    if (sampleRequestForm && formTargetIframe) {
+        formTargetIframe.onload = function() {
+            setTimeout(() => {
+                if (successModal) {
+                    successModal.classList.add('show');
+                }
+                sampleRequestForm.reset();
+                const submitBtn = sampleRequestForm.querySelector('button[type="submit"]');
+                submitBtn.textContent = '立即申请样品';
+                submitBtn.disabled = false;
+            }, 1000);
+        };
+    
+        sampleRequestForm.addEventListener('submit', function(e) {
             const submitBtn = sampleRequestForm.querySelector('button[type="submit"]');
-            const originalBtnText = submitBtn.textContent;
             submitBtn.textContent = '提交中...';
             submitBtn.disabled = true;
-            
-            // FormSubmit会自动处理表单提交和重定向
-            // 如果没有设置_next参数，会显示FormSubmit的默认成功页面
         });
     }
     
     // 步骤动画效果
     const processSteps = document.querySelectorAll('.process-step');
     if (processSteps.length > 0) {
-        // 添加延迟动画效果
         processSteps.forEach((step, index) => {
             setTimeout(() => {
                 step.style.opacity = '1';

@@ -236,8 +236,35 @@
     background-color: #1a5ea0;
 }
 
-/* 响应式设计 */
+/* 响应式设计 - 平板 */
+@media (max-width: 980px) {
+    .request-header h1 {
+        font-size: 36px;
+    }
+    
+    .request-process-section {
+        padding: 40px 20px;
+    }
+    
+    .process-steps {
+        gap: 20px;
+    }
+    
+    .request-form-section {
+        padding: 40px 20px;
+    }
+}
+
+/* 响应式设计 - 手机 */
 @media (max-width: 768px) {
+    .request-header {
+        padding: 40px 20px;
+    }
+    
+    .request-header h1 {
+        font-size: 32px;
+    }
+    
     .process-steps {
         flex-direction: column;
         gap: 20px;
@@ -254,5 +281,65 @@
     
     .sample-request-form {
         padding: 30px 20px;
+    }
+    
+    .btn-primary {
+        width: 100%;
+        padding: 14px 30px;
+    }
+}
+
+/* 响应式设计 - 小手机 */
+@media (max-width: 600px) {
+    .request-header h1 {
+        font-size: 28px;
+    }
+    
+    .request-process-section {
+        padding: 30px 15px;
+    }
+    
+    .process-step {
+        padding: 15px;
+    }
+    
+    .step-icon {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .process-step h3 {
+        font-size: 18px;
+    }
+    
+    .process-step p {
+        font-size: 14px;
+    }
+    
+    .request-form-section {
+        padding: 30px 15px;
+    }
+    
+    .sample-request-form {
+        padding: 20px 15px;
+    }
+    
+    .form-group label {
+        font-size: 14px;
+    }
+    
+    .sample-request-form input,
+    .sample-request-form select,
+    .sample-request-form textarea {
+        font-size: 14px;
+        padding: 10px 12px;
+    }
+    
+    .checkbox-container {
+        font-size: 13px;
+    }
+    
+    .btn-primary {
+        font-size: 14px;
     }
 }

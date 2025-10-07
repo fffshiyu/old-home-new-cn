@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>测试表单</title>
+</head>
+<body>
+    <h1>测试表单</h1>
+    <form action="https://formsubmit.co/contact@old-home-new.com" method="POST">
+        <input type="hidden" name="_subject" value="测试样品申请表单">
+        <input type="hidden" name="_captcha" value="false">
+        
+        <label>姓名：</label>
+        <input type="text" name="name" required><br><br>
+        
+        <label>邮箱：</label>
+        <input type="email" name="email" required><br><br>
+        
+        <label>公司：</label>
+        <input type="text" name="company" required><br><br>
+        
+        <label>留言：</label>
+        <textarea name="message"></textarea><br><br>
+        
+        <button type="submit">提交测试</button>
+    </form>
+</body>
+</html>

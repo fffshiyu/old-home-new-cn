@@ -318,8 +318,51 @@
     display: flex;
 }
 
-/* 响应式设计 */
+/* 响应式设计 - 平板 */
+@media (max-width: 980px) {
+    .consultation-header h1 {
+        font-size: 36px;
+    }
+    
+    .consultation-section {
+        padding: 40px 20px;
+    }
+    
+    .consultation-wrapper {
+        max-width: 100%;
+    }
+}
+
+/* 响应式设计 - 手机 */
 @media (max-width: 768px) {
+    .consultation-header {
+        padding: 40px 20px;
+    }
+    
+    .consultation-header h1 {
+        font-size: 32px;
+    }
+    
+    .booking-header {
+        padding: 20px;
+    }
+    
+    .booking-info h2 {
+        font-size: 20px;
+    }
+    
+    .booking-info h3 {
+        font-size: 24px;
+    }
+    
+    .date-selection {
+        padding: 20px;
+    }
+    
+    .booking-form {
+        padding: 20px;
+    }
+    
     .time-slots-container {
         grid-template-columns: repeat(3, 1fr);
     }
@@ -330,12 +373,71 @@
     
     .booking-detail-item {
         margin-bottom: 10px;
+        margin-right: 0;
+    }
+    
+    .form-actions {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .btn-secondary {
+        margin-right: 0;
+        width: 100%;
+    }
+    
+    .btn-primary {
+        width: 100%;
+    }
+    
+    .booking-confirmation {
+        padding: 30px 20px;
     }
 }
 
-@media (max-width: 480px) {
+/* 响应式设计 - 小手机 */
+@media (max-width: 600px) {
+    .consultation-header h1 {
+        font-size: 28px;
+    }
+    
+    .booking-header {
+        padding: 15px;
+    }
+    
+    .booking-info h2 {
+        font-size: 18px;
+    }
+    
+    .booking-info h3 {
+        font-size: 22px;
+    }
+    
+    .booking-description {
+        font-size: 14px;
+    }
+    
+    .date-selection {
+        padding: 15px;
+    }
+    
+    .date-selection h4,
+    .time-slots h4,
+    .booking-form h4 {
+        font-size: 16px;
+    }
+    
+    .booking-form {
+        padding: 15px;
+    }
+    
     .time-slots-container {
         grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .time-slot {
+        padding: 8px;
+        font-size: 14px;
     }
     
     .calendar-days {
@@ -344,5 +446,36 @@
     
     .calendar-day {
         padding: 8px 5px;
+        font-size: 14px;
+    }
+    
+    .calendar-weekdays div {
+        padding: 8px 5px;
+        font-size: 12px;
+    }
+    
+    .booking-footer {
+        padding: 15px;
+        font-size: 14px;
+    }
+    
+    .booking-confirmation h3 {
+        font-size: 20px;
+    }
+    
+    .confirmation-icon {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .confirmation-icon svg {
+        width: 30px;
+        height: 30px;
+    }
+    
+    .btn-primary,
+    .btn-secondary {
+        font-size: 14px;
+        padding: 10px 20px;
     }
 }

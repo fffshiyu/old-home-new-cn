@@ -50,6 +50,7 @@ document.addEventListener('DOMContentLoaded',function(){
       if(target){
         e.preventDefault();
         target.scrollIntoView({behavior:'smooth'});
+        nav.classList.remove('open'); // 隐藏导航菜单
       }
     });
   });

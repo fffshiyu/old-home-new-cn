@@ -97,23 +97,15 @@
         <!-- 申请表单 -->
         <section class="request-form-section">
             <div class="container">
-                <form id="sampleRequestForm" class="sample-request-form" action="https://formsubmit.co/53ee2d75d679a9d7a7c5ed9b7a711d74" method="POST">
+                <form id="sampleRequestForm" class="sample-request-form" action="https://formsubmit.co/ajax/contact@old-home-new.com" method="POST" target="form-target">
                     <!-- FormSubmit配置 -->
                     <input type="hidden" name="_subject" value="样品申请表单">
                     <input type="hidden" name="_captcha" value="false">
                     <input type="hidden" name="_template" value="table">
-                    <input type="hidden" name="_next" value="thank-you.html">
-                    <!-- 不使用自动回复 -->
                     
-                    <div class="form-row">
-                        <div class="form-group half">
-                            <label for="firstName">名字</label>
-                            <input type="text" id="firstName" name="firstName" placeholder="例如：张" required>
-                        </div>
-                        <div class="form-group half">
-                            <label for="lastName">姓氏 <span class="required">*</span></label>
-                            <input type="text" id="lastName" name="lastName" placeholder="例如：三" required>
-                        </div>
+                    <div class="form-group">
+                        <label for="name">姓名 <span class="required">*</span></label>
+                        <input type="text" id="name" name="name" placeholder="例如：张三" required>
                     </div>
                     
                     <div class="form-group">
@@ -122,44 +114,8 @@
                     </div>
                     
                     <div class="form-group">
-                        <label for="streetAddress">街道地址 <span class="required">*</span></label>
-                        <input type="text" id="streetAddress" name="streetAddress" placeholder="例如：北京路123号" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="apartment">公寓、套房等</label>
-                        <input type="text" id="apartment" name="apartment" placeholder="">
-                    </div>
-                    
-                    <div class="form-row">
-                        <div class="form-group half">
-                            <label for="city">城市 <span class="required">*</span></label>
-                            <input type="text" id="city" name="city" placeholder="例如：上海" required>
-                        </div>
-                        <div class="form-group half">
-                            <label for="province">省/自治区</label>
-                            <input type="text" id="province" name="province" placeholder="例如：上海市">
-                        </div>
-                    </div>
-                    
-                    <div class="form-row">
-                        <div class="form-group half">
-                            <label for="zipCode">邮政编码 <span class="required">*</span></label>
-                            <input type="text" id="zipCode" name="zipCode" placeholder="例如：200000" required>
-                        </div>
-                        <div class="form-group half">
-                            <label for="country">国家 <span class="required">*</span></label>
-                            <select id="country" name="country" required>
-                                <option value="">选择国家</option>
-                                <option value="China">中国</option>
-                                <option value="Germany">德国</option>
-                                <option value="USA">美国</option>
-                                <option value="UK">英国</option>
-                                <option value="Japan">日本</option>
-                                <option value="South Korea">韩国</option>
-                                <option value="Other">其他</option>
-                            </select>
-                        </div>
+                        <label for="address">完整地址 <span class="required">*</span></label>
+                        <textarea id="address" name="address" rows="3" placeholder="例如：中国上海市浦东新区北京路123号" required></textarea>
                     </div>
                     
                     <div class="form-row">
@@ -174,20 +130,19 @@
                     </div>
                     
                     <div class="form-group">
-                        <label for="website">网站 <span class="required">*</span></label>
-                        <input type="url" id="website" name="website" placeholder="例如：http://www.example.com" required>
+                        <label for="website">公司网站</label>
+                        <input type="url" id="website" name="website" placeholder="例如：www.example.com">
                     </div>
                     
                     <div class="form-group">
-                        <label for="companySize">公司规模 <span class="required">*</span></label>
-                        <select id="companySize" name="companySize" required>
-                            <option value="">选择选项</option>
-                            <option value="1-10">1-10名员工</option>
-                            <option value="11-50">11-50名员工</option>
-                            <option value="51-200">51-200名员工</option>
-                            <option value="201-500">201-500名员工</option>
-                            <option value="501-1000">501-1000名员工</option>
-                            <option value="1001+">1000名以上员工</option>
+                        <label for="companySize">公司规模</label>
+                        <select id="companySize" name="companySize">
+                            <option value="">选择规模</option>
+                            <option value="1-10人">1-10人</option>
+                            <option value="11-50人">11-50人</option>
+                            <option value="51-200人">51-200人</option>
+                            <option value="201-500人">201-500人</option>
+                            <option value="500人以上">500人以上</option>
                         </select>
                     </div>
                     
@@ -198,7 +153,7 @@
                     
                     <div class="form-group privacy-policy">
                         <label class="checkbox-container">
-                            <input type="checkbox" id="privacy" name="privacy" required>
+                            <input type="checkbox" id="privacy" name="_privacy" value="已同意" required>
                             <span class="checkmark"></span>
                             <span class="policy-text">我已阅读并同意<a href="#" target="_blank">隐私政策</a>和<a href="#" target="_blank">服务条款</a>。 <span class="required">*</span></span>
                         </label>
@@ -208,6 +163,7 @@
                         <button type="submit" class="btn-primary">立即申请样品</button>
                     </div>
                 </form>
+                <iframe id="form-target" name="form-target" style="display:none;"></iframe>
             </div>
         </section>
     </main>

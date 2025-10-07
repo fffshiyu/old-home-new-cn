@@ -88,8 +88,8 @@
 .site-header{position:sticky;top:0;z-index:900;background:#fff;border-bottom:1px solid var(--border)}
 .header-inner{display:flex;align-items:center;justify-content:space-between;height:80px}
 .brand img{height:80px}
-.nav-toggle{display:none;background:none;border:none;width:36px;height:36px;position:relative}
-.nav-toggle span{position:absolute;left:6px;right:6px;height:2px;background:#333;transition:transform .2s}
+.nav-toggle{display:none;background:none;border:none;width:36px;height:36px;position:relative;margin-left:auto;}
+.nav-toggle span{position:absolute;left:6px;right:6px;height:2px;background:#2070c4;transition:transform .2s}
 .nav-toggle span:nth-child(1){top:10px}.nav-toggle span:nth-child(2){top:17px}.nav-toggle span:nth-child(3){top:24px}
 
 .main-nav{flex:1;display:flex;justify-content:center}
@@ -257,7 +257,7 @@
 
 .market-image {
     width: 50%; /* 固定宽度为50% */
-    background: url('../images/backgrounds/1968-scaled.jpg') no-repeat center center;
+    background: url('../images/backgrounds/network-people-digital-world-scaled.jpg') no-repeat center center;
     background-size: cover;
     height: 100%;
 }
@@ -902,6 +902,7 @@
     .manufacture-container {
         flex-direction: column;
         height: auto;
+        width: 90%; /* 缩小宽度，增加左右外边距 */
     }
     
     .manufacture-content {
@@ -988,7 +989,7 @@
     justify-content: center;
   }
   .form-grid{grid-template-columns:1fr}
-  .market-container {flex-direction: column; height: auto; width: 95%;}
+  .market-container {flex-direction: column; height: auto; width: 90%;} /* 缩小宽度，增加左右外边距 */
   .market-content {padding: 60px 50px; width: 100%;}
   .market-image {min-height: 300px; width: 100%;}
   .market-title-red, .market-title-green {font-size: 42px;}
@@ -998,14 +999,14 @@
   .green-title {font-size: 36px;}
   
   /* Network Benefit Section 响应式 */
-  .benefit-container {flex-direction: column; height: auto;}
+  .benefit-container {flex-direction: column; height: auto; width: 90%;} /* 缩小宽度，增加左右外边距 */
   .benefit-content {width: 100%; padding: 60px 50px;}
   .benefit-image {width: 100%; min-height: 300px;}
   .benefit-title-primary, .benefit-title-secondary {font-size: 32px;}
   
   /* Benefits Icons Section 响应式 */
   .benefits-icons-container {
-    width: 95%;
+    width: 90%; /* 缩小宽度，增加左右外边距 */
   }
   
   .benefits-icons-row {
@@ -1023,11 +1024,321 @@
   .benefits-icon-box {
     margin-bottom: 20px;
   }
+  
+  /* 统一所有卡片的宽度和边距 */
+  .card {
+    width: 90%;
+    margin: 0 auto;
+  }
 }
 @media (max-width: 860px){
   .nav-toggle{display:block}
-  .main-nav{position:fixed;inset:72px 0 0 0;background:#fff;transform:translateY(-8px);opacity:0;pointer-events:none;transition:opacity .2s;flex:none}
-  .main-nav.open{opacity:1;pointer-events:auto}
-  .main-nav ul{flex-direction:column;padding:18px}
-  .cta{width:100%}
+  .main-nav {
+    position: absolute;
+    top: 60px; /* 调整以避开页眉 */
+    left: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.95); /* 半透明背景 */
+    box-shadow: none; /* 移除阴影 */
+    padding: 10px 0; /* 调整内边距 */
+    z-index: 999;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out, background-color 0.3s ease-out; /* 添加背景色过渡 */
+  }
+  
+  .main-nav.open {
+    max-height: 80vh; /* 调整为视口高度的80% */
+  }
+  
+  .main-nav ul {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .main-nav ul li {
+    text-align: center;
+    margin: 5px 0; /* 调整列表项间距 */
+  }
+  
+  .main-nav ul li a {
+    display: block;
+    padding: 8px 15px; /* 调整链接内边距 */
+    text-decoration: none;
+    color: #333;
+    font-size: 18px;
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  .main-nav ul li a:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .cta {
+    order: 4;
+    display: none;
+  }
+  
+  /* 移动端隐藏申请样品按钮 */
+  .cta .btn[href*="request-sample"] {
+    display: none !important;
+  }
+  
+  /* 移动端隐藏右上角社交媒体图标 */
+  .topbar-right {
+    display: none !important;
+  }
+  
+  /* 移动端顶部邮箱居中 */
+  .topbar {
+    text-align: center;
+    justify-content: center;
+  }
+  
+  .topbar-left {
+    text-align: center;
+    width: 100%;
+  }
+  
+  /* 移动端所有文字居中，添加上下间距 */
+  .market-content, .benefit-content, .manufacture-content {
+    padding: 40px 20px !important; /* 调整左右内边距 */
+    text-align: center !important;
+  }
+  
+  /* 移动端咨询入驻卡片与上方内容保持一致的内边距 */
+  .benefits-icons-container {
+    padding: 0 !important; /* 移除额外内边距 */
+  }
+  
+  .benefits-icon-box {
+    padding: 20px 20px !important;
+  }
+  
+  /* 移动端标题间距调整 */
+  .market-title-red, .market-title-green,
+  .benefit-title-primary, .benefit-title-secondary,
+  .manufacture-title-primary, .manufacture-title-secondary {
+    margin-bottom: 15px !important;
+    margin-top: 10px !important;
+  }
+  
+  /* 移动端文本间距调整 */
+  .market-text, .benefit-text, .manufacture-text {
+    margin-bottom: 20px !important;
+  }
+  
+  /* 移动端按钮间距调整 */
+  .market-actions, .benefit-actions, .manufacture-actions {
+    margin-top: 20px !important;
+  }
+  
+  /* 移动端图片区域添加间距 */
+  .market-image, .benefit-image, .manufacture-image {
+    min-height: 300px;
+    margin: 30px 0;
+  }
+  
+  .market-title-red, .market-title-green,
+  .benefit-title-primary, .benefit-title-secondary,
+  .manufacture-title-primary, .manufacture-title-secondary {
+    text-align: center !important;
+  }
+  
+  .market-text, .benefit-text, .manufacture-text {
+    text-align: center !important;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .market-actions, .benefit-actions, .manufacture-actions {
+    text-align: center !important;
+  }
+  
+  /* 移动端标题调整 */
+  .market-title-red, .market-title-green {font-size: 32px !important;}
+  .benefit-title-primary, .benefit-title-secondary {font-size: 28px !important;}
+  .manufacture-title-primary {font-size: 32px !important;}
+  .manufacture-title-secondary {font-size: 28px !important;}
+  
+  /* 移动端容器宽度 */
+  .container {
+    padding: 0 25px; /* 增加左右边距 */
+    text-align: center;
+  }
+  
+  /* 移动端Hero区域 */
+  .hero {
+    min-height: 60vh;
+    background-position: center;
+  }
+  
+  /* 移动端联系表单 */
+  .contact-wrapper {
+    max-width: 100%;
+  }
+  
+  .contact-title {
+    font-size: 28px;
+    margin-bottom: 30px;
+    text-align: center !important;
+  }
+  
+  .contact-form {
+    text-align: left;
+  }
+  
+  .form-actions {
+    text-align: center !important;
+  }
+  
+  /* 移动端图标区域居中 */
+  .benefits-icons-container {
+    text-align: center;
+  }
+  
+  .benefits-icon-title,
+  .benefits-icon-description {
+    text-align: center !important;
+  }
+  
+  /* 汉堡菜单按钮靠右，logo靠左 */
+  .header-inner {
+    display: flex !important;
+    align-items: center !important;
+    width: 100%;
+    padding: 0 15px; /* 恢复左右边距 */
+  }
+  
+  .brand {
+    flex: 0 0 auto;
+    order: 1;
+  }
+  
+  .nav-toggle {
+    flex: 0 0 auto;
+    order: 3;
+    margin-left: auto;
+  }
+  
+  .main-nav {
+    order: 2;
+    flex: 1;
+    max-height: 0; /* 默认隐藏 */
+    overflow: hidden;
+    transition: max-height 0.3s ease-out; /* 平滑过渡 */
+  }
+  
+  .main-nav.open {
+    max-height: 80vh; /* 调整为视口高度的80% */
+  }
+  
+  .cta {
+    order: 4;
+    display: none;
+  }
+}
+
+/* 手机端特殊优化 (小于600px) */
+@media (max-width: 600px){
+  /* Logo调整 */
+  .brand img {
+    height: 60px;
+  }
+  
+  .header-inner {
+    height: 60px;
+  }
+  
+  /* 顶部栏调整 */
+  .topbar {
+    font-size: 12px;
+    min-height: 40px;
+    padding: 0 10px;
+  }
+  
+  .topbar-right a {
+    width: 25px;
+    height: 25px;
+    margin-left: 6px;
+  }
+  
+  .topbar-right svg, .topbar-right img {
+    width: 14px;
+    height: 14px;
+  }
+  
+  /* 标题进一步缩小 */
+  .market-title-red, .market-title-green {
+    font-size: 24px !important;
+  }
+  
+  .benefit-title-primary, .benefit-title-secondary {
+    font-size: 22px !important;
+  }
+  
+  .manufacture-title-primary {
+    font-size: 24px !important;
+  }
+  
+  .manufacture-title-secondary {
+    font-size: 20px !important;
+  }
+  
+  .manufacture-text {
+    font-size: 18px;
+  }
+  
+  /* 文字大小调整 */
+  .market-text, .benefit-text {
+    font-size: 16px;
+  }
+  
+  /* 按钮调整 */
+  .market-btn, .benefit-btn, .manufacture-btn, .benefits-icons-btn {
+    font-size: 14px;
+    padding: 10px 20px;
+  }
+  
+  /* Hero区域 */
+  .hero {
+    min-height: 50vh;
+  }
+  
+  /* 图标区域 */
+  .benefits-icon-title {
+    font-size: 20px;
+  }
+  
+  .benefits-icon-description {
+    font-size: 14px;
+  }
+  
+  .custom-icon {
+    width: 45px;
+    height: 45px;
+  }
+  
+  /* 联系表单 */
+  .contact-title {
+    font-size: 24px;
+  }
+  
+  .send-request-btn {
+    width: 100%;
+    padding: 14px 30px;
+  }
+  
+  /* Footer调整 */
+  .footer-nav a {
+    font-size: 12px;
+    padding: 0 8px;
+  }
+  
+  .copyright {
+    font-size: 12px;
+  }
 }
