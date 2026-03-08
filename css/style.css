@@ -1025,8 +1025,9 @@
   }
 }
 @media (max-width: 860px){
+  .site-header{position:relative}
   .nav-toggle{display:block}
-  .main-nav{position:fixed;inset:72px 0 0 0;background:#fff;transform:translateY(-8px);opacity:0;pointer-events:none;transition:opacity .2s;flex:none}
+  .main-nav{position:absolute;top:100%;left:0;right:0;background:#fff;transform:translateY(-8px);opacity:0;pointer-events:none;transition:opacity .2s;flex:none;max-height:calc(100vh - 80px);overflow:auto}
   .main-nav.open{opacity:1;pointer-events:auto}
   .main-nav ul{flex-direction:column;padding:18px}
   .cta{width:100%}
